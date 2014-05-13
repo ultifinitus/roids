@@ -22,6 +22,10 @@ public class Game implements Runnable{
    public Game(){
       frame = new JFrame("Basic Game");
       
+      p1.x=5;
+      p1.y=5;
+      p1.sx=p1.sy=32;
+      
       JPanel panel = (JPanel) frame.getContentPane();
       panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
       panel.setLayout(null);
@@ -45,7 +49,7 @@ public class Game implements Runnable{
       canvas.requestFocus();
    }
    
-   private class ship{
+   private class Ship{
 	   public float x;
 	   public float y;
 	   
@@ -53,7 +57,11 @@ public class Game implements Runnable{
 	   public float sy;
 	   
 	   public float theta;
-   
+	   
+	   public void apply(Graphics2D g){
+		   g.fillRect((int)p1.x,(int)p1.y,(int)p1.sx,(int)p1.sy);
+		   g.drawImage("")
+	   }
    }
         
    private class MouseControl extends MouseAdapter{
@@ -105,24 +113,21 @@ public class Game implements Runnable{
       bufferStrategy.show();
    }
    
-   //TESTING
-   private double x = 0;
+   Ship p1 = new Ship();
+   
    
    /**
     * Rewrite this method for your game
     */
    protected void update(int deltaTime){
-      x += deltaTime * 0.2;
-      while(x > 500){
-         x -= 500;
-      }
+      p1.x=(p1.x+1)%(WIDTH-p1.sx);
    }
    
    /**
     * Rewrite this method for your game
     */
    protected void render(Graphics2D g){
-      g.fillRect((int)x, 0, 200, 200);
+      p1.apply(g);
    }
    
    public static void main(String [] args){
