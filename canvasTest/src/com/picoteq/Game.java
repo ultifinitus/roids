@@ -22,7 +22,7 @@ public class Game implements Runnable{
    public Game(){
       frame = new JFrame("Basic Game");
       
-      p1.x=5;
+      p1.x=2;
       p1.y=5;
       p1.sx=p1.sy=32;
       p1.velocity=10;
@@ -51,15 +51,15 @@ public class Game implements Runnable{
    }
    
    private class Ship{
-	   public float x;
-	   public float y;
+	   public double x;
+	   public double y;
 	   
-	   public float sx;
-	   public float sy;
+	   public double sx;
+	   public double sy;
 	   
-	   public float velocity;
+	   public double velocity;
 	   
-	   public float theta;
+	   public double theta;
 	   
 	   public void apply(Graphics2D g){
 		   g.fillRect((int)p1.x,(int)p1.y,(int)p1.sx,(int)p1.sy);
