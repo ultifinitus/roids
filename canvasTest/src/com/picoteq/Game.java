@@ -12,8 +12,8 @@ import javax.swing.JPanel;
 
 public class Game implements Runnable{
    
-   final int WIDTH = 1000;
-   final int HEIGHT = 700;
+   final int WIDTH = 640;
+   final int HEIGHT = 480;
    private long gframe = 0;
    
    JFrame frame;
