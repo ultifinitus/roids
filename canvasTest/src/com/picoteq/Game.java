@@ -9,7 +9,6 @@ import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-
 public class Game implements Runnable{
    
    final int WIDTH = 1000;
