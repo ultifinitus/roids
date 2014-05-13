@@ -25,6 +25,7 @@ public class Game implements Runnable{
       p1.x=5;
       p1.y=5;
       p1.sx=p1.sy=32;
+      p1.velocity=10;
       
       JPanel panel = (JPanel) frame.getContentPane();
       panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -56,11 +57,12 @@ public class Game implements Runnable{
 	   public float sx;
 	   public float sy;
 	   
+	   public float velocity;
+	   
 	   public float theta;
 	   
 	   public void apply(Graphics2D g){
 		   g.fillRect((int)p1.x,(int)p1.y,(int)p1.sx,(int)p1.sy);
-		   g.drawImage("")
 	   }
    }
         
@@ -120,7 +122,7 @@ public class Game implements Runnable{
     * Rewrite this method for your game
     */
    protected void update(int deltaTime){
-      p1.x=(p1.x+1)%(WIDTH-p1.sx);
+      p1.x=(p1.x+p1.velocity)%(WIDTH-p1.sx);
    }
    
    /**
