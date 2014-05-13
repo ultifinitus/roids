@@ -14,6 +14,7 @@ public class Game implements Runnable{
    
    final int WIDTH = 1000;
    final int HEIGHT = 700;
+   private long gframe = 0;
    
    JFrame frame;
    Canvas canvas;
@@ -71,7 +72,7 @@ public class Game implements Runnable{
    }
    
    long desiredFPS = 60;
-    long desiredDeltaLoop = (1000*1000*1000)/desiredFPS;
+   long desiredDeltaLoop = (1000*1000*1000)/desiredFPS;
     
    boolean running = true;
    
@@ -92,6 +93,7 @@ public class Game implements Runnable{
          currentUpdateTime = System.nanoTime();
          update((int) ((currentUpdateTime - lastUpdateTime)/(1000*1000)));
          
+         gframe++;
          endLoopTime = System.nanoTime();
          deltaLoop = endLoopTime - beginLoopTime;
            
