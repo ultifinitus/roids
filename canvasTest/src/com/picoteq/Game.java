@@ -27,7 +27,7 @@ public class Game implements Runnable{
       
       p1.pos.x=2;
       p1.pos.y=5;
-      p1.size.x=p1.size.y=32;
+      p1.size.x=p1.size.y=1;
       p1.velocity=10;
       
       JPanel panel = (JPanel) frame.getContentPane();
