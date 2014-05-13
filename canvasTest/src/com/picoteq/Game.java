@@ -16,7 +16,7 @@ public class Game implements Runnable{
    final int HEIGHT = 500;
 
 
-   private long gframe = 100;
+   private long gframe = 0;
    
    JFrame frame;
    Canvas canvas;
