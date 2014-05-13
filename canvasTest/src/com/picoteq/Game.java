@@ -11,9 +11,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Game implements Runnable{
+
    final int WIDTH = 100;
    final int HEIGHT = 100;
-   private long gframe = 9001;
+
+
+   private long gframe = 100;
    
    JFrame frame;
    Canvas canvas;
