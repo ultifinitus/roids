@@ -3,6 +3,7 @@ package com.picoteq;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.image.BufferStrategy;
 
@@ -22,9 +23,9 @@ public class Game implements Runnable{
    public Game(){
       frame = new JFrame("Basic Game");
       
-      p1.x=2;
-      p1.y=5;
-      p1.sx=p1.sy=32;
+      p1.pos.x=2;
+      p1.pos.y=5;
+      p1.size.x=p1.size.y=32;
       p1.velocity=10;
       
       JPanel panel = (JPanel) frame.getContentPane();
@@ -51,18 +52,19 @@ public class Game implements Runnable{
    }
    
    private class Ship{
-	   public double x;
-	   public double y;
+	   public Point pos = new Point();
 	   
-	   public double sx;
-	   public double sy;
+	   public Point size = new Point();
 	   
-	   public double velocity;
+	   public int velocity;
 	   
 	   public double theta;
 	   
 	   public void apply(Graphics2D g){
-		   g.fillRect((int)p1.x,(int)p1.y,(int)p1.sx,(int)p1.sy);
+		   System.out.print("\n" + pos.x + " " + pos.y);
+		   
+		   g.fillRect(pos.x,pos.y,size.x,size.y);
+		   
 	   }
    }
         
@@ -123,7 +125,9 @@ public class Game implements Runnable{
     * Rewrite this method for your game
     */
    protected void update(int deltaTime){
-      p1.x=(p1.x+p1.velocity)%(WIDTH-p1.sx);
+      p1.pos.x++;
+      if (p1.pos.x > 500)
+    	  p1.pos.x = 0;
    }
    
    /**
