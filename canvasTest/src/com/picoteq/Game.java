@@ -45,6 +45,16 @@ public class Game implements Runnable{
       canvas.requestFocus();
    }
    
+   private class ship{
+	   public float x;
+	   public float y;
+	   
+	   public float sx;
+	   public float sy;
+	   
+	   public float theta;
+   
+   }
         
    private class MouseControl extends MouseAdapter{
       
